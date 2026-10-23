@@ -20,7 +20,7 @@ Quick setup:
 ```text
        Navigate to your ComfyUI custom_nodes directory. 
 
-       TensorRT based upscaling needs nVidias NVIDIA TensorRT 10.x. You can get it from here:
+       TensorRT based operations need nVidia NVIDIA TensorRT 10.x. You can get it from here:
        https://developer.nvidia.com/tensorrt/download/10x
 
        Run:
@@ -31,7 +31,7 @@ Quick setup:
 
        pip install -r requirements.txt
 
-       Download needed onnx - files to your ComfyUI or custom models/upscale_models/ - folder.
+       Download needed onnx - files to your ComfyUI or custom models/Rife/ - folder.
 
        Restart ComfyUI.
 ```
@@ -173,7 +173,7 @@ Clone the Repository
 ```text
        Navigate to your ComfyUI custom_nodes directory. 
 
-       TensorRT based upscaling needs nVidias NVIDIA TensorRT 10.x. You can get it from here:
+       TensorRT based operations need nVidia NVIDIA TensorRT 10.x. You can get it from here:
        https://developer.nvidia.com/tensorrt/download/10x
 
        Run:
@@ -184,7 +184,7 @@ Clone the Repository
 
        pip install -r requirements.txt
 
-       Download needed onnx - files to your ComfyUI or custom models/upscale_models/ - folder.
+       Download needed onnx - files to your ComfyUI or custom models/Rife/ - folder.
 
        Restart ComfyUI.
 ```
@@ -198,7 +198,7 @@ ComfyUI/
 │       ├── __init__.py
 │       └── rife_onnx_node.py
 └── models/
-    └── rife/
+    └── Rife/
         └── your_model.onnx
 ```
 
@@ -215,7 +215,7 @@ python -c "import onnxruntime as ort; print(ort.get_available_providers())"
 Place one or more `.onnx` files under:
 
 ```text
-ComfyUI/models/rife/
+ComfyUI/models/Rife/
 ```
 
 The node prefers this filename when present:
@@ -250,7 +250,7 @@ image/video/interpolation
 Display name:
 
 ```text
-RIFE ONNX Interpolation (Low VRAM)
+RIFE ONNX Interpolation
 ```
 
 ## Node inputs
@@ -296,7 +296,7 @@ The TensorRT configuration enables:
 - a configured maximum workspace of **6 GiB**.
 
 > [!NOTE]
-> The TensorRT workspace is limited to 6 GiB, the actual `trt_max_workspace_size` value is `6 * 1024 * 1024 * 1024`.
+> The TensorRT workspace is limited to 6 GiB, the actual `trt_max_workspace_size` value is `24 * 1024 * 1024 * 1024`.
 > The executable configuration therefore uses 6 GiB.
 
 
