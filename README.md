@@ -45,6 +45,9 @@ Quick setup:
 - Provides optional timing, provider, padding, and CUDA-memory diagnostics.
 - Sanitizes `NaN` and infinite model output and clamps pixels to `[0, 1]`.
 
+<details>
+  <summary>Details about RIFE-method with ONNX-framework</summary>
+
 ## What the node does
 
 Given an ordered batch of frames:
