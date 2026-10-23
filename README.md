@@ -1,11 +1,11 @@
 # ComfyUI RIFE ONNX Frame Interpolation (Low VRAM)
 
-A memory-conscious custom node for [ComfyUI](https://github.com/comfyanonymous/ComfyUI) that performs video frame interpolation with a RIFE ONNX model.
+A memory-conscious custom node for ComfyUI that performs video frame interpolation with a RIFE ONNX- model.
 
 The node inserts AI-generated intermediate frames between consecutive input images. Its main design goal is to reduce peak GPU-memory usage by keeping the full image sequence in system RAM, transferring only one frame pair to the accelerator at a time, and moving each generated frame back to the CPU immediately.
 
 > [!IMPORTANT]
-> This repository contains the node implementation, not a RIFE ONNX model. You must provide a compatible `.onnx` model whose inputs are named `img0`, `img1`, and `timestep`.
+> This repository contains the node implementation, not a RIFE ONNX model. You must provide a compatible `.onnx` model. Models - folder have couple of them for start.
 
 ## Features
 
@@ -152,24 +152,6 @@ ComfyUI/
         └── your_model.onnx
 ```
 
-### 2. Export the node mappings
-
-If your package uses a separate `__init__.py`, export the mappings:
-
-```python
-from .rife_onnx_node import NODE_CLASS_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS
-
-__all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]
-```
-
-### 3. Install dependencies
-
-Install dependencies in the same Python environment used by ComfyUI:
-
-```bash
-python -m pip install numpy tqdm torch onnxruntime
-```
-
 Choose the ONNX Runtime package that matches the intended provider. The base `onnxruntime` package is appropriate for CPU execution. GPU/TensorRT/ROCm availability depends on the installed ONNX Runtime build and compatible system libraries.
 
 Confirm the providers visible to ONNX Runtime:
@@ -178,7 +160,7 @@ Confirm the providers visible to ONNX Runtime:
 python -c "import onnxruntime as ort; print(ort.get_available_providers())"
 ```
 
-### 4. Add a compatible model
+### 2. Add a compatible model
 
 Place one or more `.onnx` files under:
 
@@ -189,7 +171,7 @@ ComfyUI/models/rife/
 The node prefers this filename when present:
 
 ```text
-rife47_ensemble_True_scale_1_sim.onnx
+*.onnx
 ```
 
 The implementation validates that the model has:
@@ -218,7 +200,7 @@ image/video/interpolation
 Display name:
 
 ```text
-RIFE 4.7 ONNX Interpolation (Low VRAM)
+RIFE ONNX Interpolation (Low VRAM)
 ```
 
 ## Node inputs
@@ -244,6 +226,7 @@ The selected provider is tried first. The fallback chain is:
 
 ```text
 selected provider
+→ TensorrtExecutionProvider
 → CUDAExecutionProvider
 → ROCmExecutionProvider
 → CPUExecutionProvider
@@ -263,7 +246,9 @@ The TensorRT configuration enables:
 - a configured maximum workspace of **6 GiB**.
 
 > [!NOTE]
-> The source module's opening comment says the TensorRT workspace is limited to 2 GiB, but the actual `trt_max_workspace_size` value is `6 * 1024 * 1024 * 1024`. The executable configuration therefore uses 6 GiB. Update either the comment or the setting so the documentation and behavior agree.
+> The TensorRT workspace is limited to 6 GiB, the actual `trt_max_workspace_size` value is `6 * 1024 * 1024 * 1024`.
+> The executable configuration therefore uses 6 GiB.
+
 
 TensorRT cache directories are relative to the ComfyUI process working directory:
 
@@ -295,7 +280,7 @@ ROCm can be selected and used as an ONNX Runtime provider, but this implementati
 
 ### 1. Model discovery
 
-At import time, the node creates `ComfyUI/models/rife` and attempts to register it with ComfyUI. `INPUT_TYPES()` scans all registered `rife` model directories for `.onnx` files and places the preferred RIFE 4.7 filename first.
+At import time, the node creates `ComfyUI/models/rife` and attempts to register it with ComfyUI. `INPUT_TYPES()` scans all registered `rife` model directories for `.onnx` files and places the preferred RIFE- filename first.
 
 ### 2. Runtime cache validation
 
@@ -533,16 +518,3 @@ Recommended test coverage:
 - runtime-version changes clear the TensorRT caches;
 - `NaN` and infinite output are sanitized;
 - `keep_model_loaded=False` releases the class-level session.
-
-## License
-
-No license was included in the supplied source file. Add a `LICENSE` file before publishing the project so users know whether they may use, modify, and redistribute the code. If the repository includes or distributes a RIFE model, review the model's license separately.
-
-## Acknowledgements
-
-This node is designed around:
-
-- ComfyUI's custom-node and image-batch interfaces;
-- RIFE-style frame interpolation through a compatible ONNX graph;
-- ONNX Runtime execution providers and I/O binding;
-- PyTorch tensor storage and device transfers.
