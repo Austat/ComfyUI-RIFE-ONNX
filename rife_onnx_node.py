@@ -26,11 +26,11 @@ from tqdm import tqdm
 import folder_paths
 
 
-RIFE_MODEL_DIR = os.path.join(folder_paths.models_dir, "upscale_models")
+RIFE_MODEL_DIR = os.path.join(folder_paths.models_dir, "Rife")
 os.makedirs(RIFE_MODEL_DIR, exist_ok=True)
 
 try:
-    folder_paths.add_model_folder_path("upscale_models", RIFE_MODEL_DIR)
+    folder_paths.add_model_folder_path("Rife", RIFE_MODEL_DIR)
 except Exception:
     pass
 
@@ -51,7 +51,7 @@ class RifeOnnxInterpolationNode:
     def INPUT_TYPES(cls):
         files = []
 
-        for directory in folder_paths.get_folder_paths("upscale_models"):
+        for directory in folder_paths.get_folder_paths("Rife"):
             if os.path.isdir(directory):
                 files.extend(
                     name
@@ -104,7 +104,7 @@ class RifeOnnxInterpolationNode:
 
     @staticmethod
     def _find_model(model_file):
-        for directory in folder_paths.get_folder_paths("upscale_models"):
+        for directory in folder_paths.get_folder_paths("Rife"):
             path = os.path.join(directory, model_file)
 
             if os.path.isfile(path):
