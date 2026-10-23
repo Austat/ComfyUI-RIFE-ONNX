@@ -152,6 +152,26 @@ ComfyUI/
         └── your_model.onnx
 ```
 
+```text
+ Clone the Repository 
+       Navigate to your ComfyUI custom_nodes directory. 
+
+       TensorRT based upscaling needs nVidias NVIDIA TensorRT 10.x. You can get it from here:
+       https://developer.nvidia.com/tensorrt/download/10x
+
+       Run:
+
+       git clone https://github.com/Austat/ComfyUI-RemacriScale
+
+       cd ComfyUI-RemacriScale
+
+       pip install -r requirements.txt
+
+       Download needed onnx - files to your ComfyUI or custom models/upscale_models/ - folder.
+
+       Restart ComfyUI.
+```
+
 Choose the ONNX Runtime package that matches the intended provider. The base `onnxruntime` package is appropriate for CPU execution. GPU/TensorRT/ROCm availability depends on the installed ONNX Runtime build and compatible system libraries.
 
 Confirm the providers visible to ONNX Runtime:
