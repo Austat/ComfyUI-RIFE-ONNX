@@ -1,5 +1,7 @@
 # ComfyUI RIFE ONNX Frame Interpolation (Low VRAM)
 
+<img width="560" height="334" alt="image" src="https://github.com/user-attachments/assets/56d57ca6-a43d-4c90-899e-57dad1972896" />
+
 A memory-conscious custom node for ComfyUI that performs video frame interpolation with a RIFE ONNX- model.
 
 The node inserts AI-generated intermediate frames between consecutive input images. Its main design goal is to reduce peak GPU-memory usage by keeping the full image sequence in system RAM, transferring only one frame pair to the accelerator at a time, and moving each generated frame back to the CPU immediately.
