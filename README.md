@@ -6,6 +6,15 @@ A memory-conscious custom node for ComfyUI that performs video frame interpolati
 
 The node inserts AI-generated intermediate frames between consecutive input images. Its main design goal is to reduce peak GPU-memory usage by keeping the full image sequence in system RAM, transferring only one frame pair to the accelerator at a time, and moving each generated frame back to the CPU immediately.
 
+Can use following methods:
+
+```text
+→ TensorrtExecutionProvider
+→ CUDAExecutionProvider
+→ ROCmExecutionProvider
+→ CPUExecutionProvider
+```
+
 Quick setup:
 
 ```text
