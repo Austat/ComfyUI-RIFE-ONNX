@@ -37,7 +37,8 @@ Quick setup:
 ```
 
 > [!IMPORTANT]
-> This repository contains the node implementation, not a RIFE ONNX model. You must provide a compatible `.onnx` model. Models - folder have couple of them for start.
+> This repository contains the node implementation, and couple of RIFE ONNX models. You can also provide your own compatible `.onnx` models.
+> This repo has "upscale_models" - folder that has couple of them for start.
 
 ## Features
 
