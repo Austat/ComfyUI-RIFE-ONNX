@@ -4,7 +4,9 @@
 
 A memory-conscious custom node for ComfyUI that performs video frame interpolation with a RIFE ONNX- model.
 
-The node inserts AI-generated intermediate frames between consecutive input images. Its main design goal is to reduce peak GPU-memory usage by keeping the full image sequence in system RAM, transferring only one frame pair to the accelerator at a time, and moving each generated frame back to the CPU immediately.
+The node inserts AI-generated intermediate frames between consecutive input images. 
+Its main design goal is to reduce peak GPU-memory usage by keeping the full image sequence in system RAM. 
+Transferring only one frame pair to the accelerator at a time, and moving each generated frame back to the CPU immediately.
 
 Can use following methods:
 
@@ -32,6 +34,12 @@ Quick setup:
        pip install -r requirements.txt
 
        Download needed onnx - files to your ComfyUI or custom models/Rife/ - folder.
+       ie.
+
+       - rife_v4.25_comfy.onnx
+       - rife_v4.25_lite_comfy.onnx
+       - rife_v4.26_comfy.onnx
+       - rife_v4.26_heavy_comfy.onnx
 
        Restart ComfyUI.
 ```
