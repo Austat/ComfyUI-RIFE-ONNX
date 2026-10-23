@@ -1,4 +1,4 @@
-# ComfyUI RIFE ONNX Frame Interpolation (Low VRAM)
+# ComfyUI RIFE ONNX Frame Interpolation
 
 <img width="560" height="334" alt="image" src="https://github.com/user-attachments/assets/56d57ca6-a43d-4c90-899e-57dad1972896" />
 
