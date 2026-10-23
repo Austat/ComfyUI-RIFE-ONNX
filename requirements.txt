@@ -1,3 +1,5 @@
-tensorrt
-polygraphy
-requests
+onnxruntime-gpu
+numpy 
+opencv-contrib-python
+torch 
+tqdm
