@@ -2,11 +2,12 @@
 
 <img width="560" height="334" alt="image" src="https://github.com/user-attachments/assets/56d57ca6-a43d-4c90-899e-57dad1972896" />
 
-A memory-conscious custom node for ComfyUI that performs video frame interpolation with a RIFE ONNX- model.
+A memory-conscious custom node for ComfyUI that performs video frame interpolation with a RIFE ONNX- model. 
+It's an ONNX- port of [Practical-RIFE](https://github.com/hzwer/Practical-RIFE).
 
 The node inserts AI-generated intermediate frames between consecutive input images. 
-Its main design goal is to reduce peak GPU-memory usage by keeping the full image sequence in system RAM. 
-Transferring only one frame pair to the accelerator at a time, and moving each generated frame back to the CPU immediately.
+Its main design goal is to reduce peak GPU-memory usage by keeping the full image sequence in system RAM and still use fast TensorRT. 
+It's achieved by transferring only one frame pair to the accelerator at a time, and moving each generated frame back to the CPU immediately.
 
 Can use following methods:
 
