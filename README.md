@@ -1,6 +1,6 @@
 # ComfyUI RIFE ONNX Frame Interpolation
 
-<img width="560" height="334" alt="image" src="https://github.com/user-attachments/assets/56d57ca6-a43d-4c90-899e-57dad1972896" />
+<img width="649" height="520" alt="image" src="https://github.com/user-attachments/assets/1741cdb4-2f3f-47cb-9113-d30944146546" />
 
 A memory-conscious custom node for ComfyUI that performs video frame interpolation with a RIFE ONNX- model. 
 It's an ONNX- port of [Practical-RIFE](https://github.com/hzwer/Practical-RIFE).
