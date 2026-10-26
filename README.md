@@ -5,6 +5,7 @@
 <br>
 A memory-conscious custom node for ComfyUI that performs video frame interpolation with a RIFE ONNX- model. 
 It's an ONNX- port of [Practical-RIFE](https://github.com/hzwer/Practical-RIFE).
+
 <br>
 <br>
 The node inserts AI-generated intermediate frames between consecutive input images. 
