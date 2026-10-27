@@ -26,16 +26,16 @@ from tqdm import tqdm
 import folder_paths
 
 
-RIFE_MODEL_DIR = os.path.join(folder_paths.models_dir, "rife")
+RIFE_MODEL_DIR = os.path.join(folder_paths.models_dir, "Rife")
 os.makedirs(RIFE_MODEL_DIR, exist_ok=True)
 
 try:
-    folder_paths.add_model_folder_path("rife", RIFE_MODEL_DIR)
+    folder_paths.add_model_folder_path("Rife", RIFE_MODEL_DIR)
 except Exception:
     pass
 
 
-class RifeOnnxInterpolationNode:
+class RifeOnnxInterpolationNodeLowVram:
     """Memory-efficient RIFE ONNX interpolation with GPU I/O binding."""
 
     RUNTIME_VERSION_FILE = "./trt_cache_metadata/rife_runtime_versions.json"
@@ -51,7 +51,7 @@ class RifeOnnxInterpolationNode:
     def INPUT_TYPES(cls):
         files = []
 
-        for directory in folder_paths.get_folder_paths("rife"):
+        for directory in folder_paths.get_folder_paths("Rife"):
             if os.path.isdir(directory):
                 files.extend(
                     name
@@ -104,7 +104,7 @@ class RifeOnnxInterpolationNode:
 
     @staticmethod
     def _find_model(model_file):
-        for directory in folder_paths.get_folder_paths("rife"):
+        for directory in folder_paths.get_folder_paths("Rife"):
             path = os.path.join(directory, model_file)
 
             if os.path.isfile(path):
@@ -933,14 +933,3 @@ class RifeOnnxInterpolationNode:
                 torch.cuda.empty_cache()
 
         return (output,)
-
-
-NODE_CLASS_MAPPINGS = {
-    "RifeOnnxInterpolation":
-        RifeOnnxInterpolationNode,
-}
-
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "RifeOnnxInterpolation":
-        "RIFE 4.7 ONNX Interpolation (Low VRAM)",
-}

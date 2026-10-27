@@ -697,11 +697,3 @@ class RifeOnnxInterpolationNode:
         if not keep_model_loaded:
             self.__class__._clear_sessions()
         return (output,)
-
-
-NODE_CLASS_MAPPINGS = {
-    "RifeOnnxInterpolation": RifeOnnxInterpolationNode,
-}
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "RifeOnnxInterpolation": "RIFE Interpolation (Multi-GPU ONNX)",
-}
