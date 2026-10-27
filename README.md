@@ -1,5 +1,12 @@
 # ComfyUI RIFE ONNX Frame Interpolation
+<br>
+<br>
 
+*Ever had a need for higher and smoother video playback? Maybe your video had lagg or some stutters here and there. 
+RIFE- interpolation is just for cases like that, it smooths the playback by inserting frames inbetween.*
+
+<br>
+<br>
 <img width="649" height="520" alt="image" src="https://github.com/user-attachments/assets/1741cdb4-2f3f-47cb-9113-d30944146546" />
 
 A memory-conscious custom node for ComfyUI that performs video frame interpolation with a RIFE ONNX- model. 
