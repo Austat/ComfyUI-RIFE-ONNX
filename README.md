@@ -2,8 +2,10 @@
 <br>
 <br>
 
-*Ever had a need for higher and smoother video playback? Maybe your video had lagg or some stutters here and there. 
-RIFE- interpolation is just for cases like that, it smooths the playback by inserting frames inbetween.*
+*Hath thy heart ever yearned for a higher, more wondrously smooth motion in thy moving pictures? 
+Perchance thy fleeting visions suffered from a cruel lag, or stumbled with a heavy stutter here and there upon the screen. 
+Know then, that RIFE-interpolation was fashioned for precisely such sorrows. 
+It gently heals the broken stride and bestows a perfect, flowing grace upon the playback, tenderly weaving new frames in between.*
 
 <br>
 <br>
