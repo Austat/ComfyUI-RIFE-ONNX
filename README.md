@@ -5,14 +5,14 @@
 *"Hath thy heart ever yearned for a higher, more wondrously smooth motion in thy moving pictures? 
 Perchance thy fleeting visions suffered from a cruel lag, or stumbled with a heavy stutter here and there upon the screen. 
 Know then, that RIFE-interpolation was fashioned for precisely such sorrows. 
-It gently heals the broken stride and bestows a perfect, flowing grace upon the playback, tenderly weaving new frames in between." <br> -The Ancient Chronicles of Sorrow, Book IV, Chapter IX (Smooth Motion, Heavy Hearts)
+It gently heals the broken stride and bestows a perfect, flowing grace upon the playback, tenderly weaving new frames in between."<h6>-The Ancient Chronicles of Sorrow, Book IV, Chapter IX (Smooth Motion, Heavy Hearts)
 Written by the Scribe Austat, The High Priest of the Melancholic Matrix*
 
 <br>
 <br>
 <img width="649" height="520" alt="image" src="https://github.com/user-attachments/assets/1741cdb4-2f3f-47cb-9113-d30944146546" />
 
-A memory-conscious custom node for ComfyUI that performs video frame interpolation with a RIFE ONNX- model. 
+## A memory-conscious custom node for ComfyUI that performs video frame interpolation with a RIFE ONNX- model. 
 It's an ONNX- port of [Practical-RIFE](https://github.com/hzwer/Practical-RIFE).
 
 The node inserts AI-generated intermediate frames between consecutive input images. 
