@@ -47,10 +47,17 @@ Quick setup:
        Download needed onnx - files to your ComfyUI or custom models/Rife/ - folder.
        ie.
 
-       - rife_v4.25_comfy.onnx
-       - rife_v4.25_lite_comfy.onnx
-       - rife_v4.26_comfy.onnx
-       - rife_v4.26_heavy_comfy.onnx
+       rife_v4.25:
+       	- rife_v4.25_comfy.onnx
+       	- rife_v4.25_ensemble_True_scale_1_comfy.onnx
+       	- rife_v4.25_lite_comfy.onnx
+       	- rife_v4.25_lite_ensemble_True_scale_1_comfy.onnx
+       	
+       rife_v4.26:
+       	- rife_v4.26_comfy.onnx
+       	- rife_v4.26_ensemble_True_scale_1_comfy.onnx
+       	- rife_v4.26_heavy_comfy.onnx
+       	- rife_v4.26_heavy_ensemble_True_scale_1_comfy.onnx
 
        Restart ComfyUI.
 ```
