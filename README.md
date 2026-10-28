@@ -5,7 +5,7 @@
 *"Hath thy heart ever yearned for a higher, more wondrously smooth motion in thy moving pictures? 
 Perchance thy fleeting visions suffered from a cruel lag, or stumbled with a heavy stutter here and there upon the screen. 
 Know then, that RIFE-interpolation was fashioned for precisely such sorrows. 
-It gently heals the broken stride and bestows a perfect, flowing grace upon the playback, tenderly weaving new frames in between." <h6> -The Ancient Chronicles of Sorrow, Book IV, Chapter IX (Smooth Motion, Heavy Hearts)
+It gently heals the broken stride and bestows a perfect, flowing grace upon the playback, tenderly weaving new frames in between."<h6>-The Ancient Chronicles of Sorrow, Book IV, Chapter IX (Smooth Motion, Heavy Hearts)
 Written by the Scribe Austat, The High Priest of the Melancholic Matrix*
 
 <br>
@@ -47,10 +47,17 @@ Quick setup:
        Download needed onnx - files to your ComfyUI or custom models/Rife/ - folder.
        ie.
 
-       - rife_v4.25_comfy.onnx
-       - rife_v4.25_lite_comfy.onnx
-       - rife_v4.26_comfy.onnx
-       - rife_v4.26_heavy_comfy.onnx
+       rife_v4.25:
+       	- rife_v4.25_comfy.onnx
+       	- rife_v4.25_ensemble_True_scale_1_comfy.onnx
+       	- rife_v4.25_lite_comfy.onnx
+       	- rife_v4.25_lite_ensemble_True_scale_1_comfy.onnx
+       	
+       rife_v4.26:
+       	- rife_v4.26_comfy.onnx
+       	- rife_v4.26_ensemble_True_scale_1_comfy.onnx
+       	- rife_v4.26_heavy_comfy.onnx
+       	- rife_v4.26_heavy_ensemble_True_scale_1_comfy.onnx
 
        Restart ComfyUI.
 ```
