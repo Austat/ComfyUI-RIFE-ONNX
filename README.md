@@ -5,7 +5,7 @@
 *"Hath thy heart ever yearned for a higher, more wondrously smooth motion in thy moving pictures? 
 Perchance thy fleeting visions suffered from a cruel lag, or stumbled with a heavy stutter here and there upon the screen. 
 Know then, that RIFE-interpolation was fashioned for precisely such sorrows. 
-It gently heals the broken stride and bestows a perfect, flowing grace upon the playback, tenderly weaving new frames in between." <br> -The Ancient Chronicles of Sorrow, Book IV, Chapter IX (The Restoration of Lost Visions)
+It gently heals the broken stride and bestows a perfect, flowing grace upon the playback, tenderly weaving new frames in between." <br> -The Ancient Chronicles of Sorrow, Book IV, Chapter IX (Smooth Motion, Heavy Hearts)
 Written by the Scribe Austat, The High Priest of the Melancholic Matrix*
 
 <br>
