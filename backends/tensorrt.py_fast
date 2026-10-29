@@ -1,0 +1,41 @@
+from __future__ import annotations
+import hashlib
+import json
+import os
+import onnxruntime as ort
+from .cuda import CudaBackend
+from ..config import CACHE_DIR
+
+class TensorRTBackend(CudaBackend):
+    provider='TensorrtExecutionProvider'
+    @staticmethod
+    def _positive_int_env(name,default):
+        raw=os.getenv(name); value=default if raw is None else int(raw)
+        if value<=0: raise ValueError(f'{name} must be a positive integer')
+        return value
+    @staticmethod
+    def _shape_text(shape): return 'x'.join(str(value) for value in shape)
+    def _profiles(self,contract,height,width,batch):
+        channels=self._positive_int_env('ORT_TRT_CHANNELS',3)
+        min_batch=self._positive_int_env('ORT_TRT_MIN_BATCH',1)
+        max_batch=self._positive_int_env('ORT_TRT_MAX_BATCH',batch)
+        if not min_batch<=batch<=max_batch: raise ValueError('TensorRT batch profile must satisfy min <= opt <= max')
+        def image_shape(value): return f'{value}x{channels}x{height}x{width}'
+        def timestep_shape(value): return self._shape_text(self._runtime_shape(contract.timestep_shape,value))
+        return {
+          'trt_profile_min_shapes':f'img0:{image_shape(min_batch)},img1:{image_shape(min_batch)},timestep:{timestep_shape(min_batch)}',
+          'trt_profile_opt_shapes':f'img0:{image_shape(batch)},img1:{image_shape(batch)},timestep:{timestep_shape(batch)}',
+          'trt_profile_max_shapes':f'img0:{image_shape(max_batch)},img1:{image_shape(max_batch)},timestep:{timestep_shape(max_batch)}'}
+    def create_session(self,model,contract,height,width,batch,precision,workspace_mb):
+        options=ort.SessionOptions(); options.graph_optimization_level=ort.GraphOptimizationLevel.ORT_ENABLE_ALL
+        options.execution_mode=ort.ExecutionMode.ORT_SEQUENTIAL; device_id=self.device.device_id or 0
+        profiles=self._profiles(contract,height,width,batch)
+        cache_identity={'fingerprint':contract.fingerprint,'device_id':device_id,'precision':'fp16' if precision=='auto' else precision,'workspace_mb':int(workspace_mb),**profiles}
+        cache_key=hashlib.sha256(json.dumps(cache_identity,sort_keys=True).encode('utf-8')).hexdigest()[:24]
+        root=CACHE_DIR/'tensorrt'/cache_key; engine=root/'engine'; timing=root/'timing'
+        engine.mkdir(parents=True,exist_ok=True); timing.mkdir(parents=True,exist_ok=True)
+        trt={'device_id':device_id,'trt_engine_cache_enable':True,'trt_engine_cache_path':str(engine),
+             'trt_timing_cache_enable':True,'trt_timing_cache_path':str(timing),
+             'trt_fp16_enable':precision in {'auto','fp16'},
+             'trt_max_workspace_size':int(workspace_mb)*1024*1024,**profiles}
+        return ort.InferenceSession(str(model),sess_options=options,providers=[(self.provider,trt),('CUDAExecutionProvider',self.provider_options())])
