@@ -22,10 +22,11 @@ It's achieved by transferring only one frame pair to the accelerator at a time, 
 Can use following methods:
 
 ```text
-→ TensorrtExecutionProvider
-→ CUDAExecutionProvider
-→ ROCmExecutionProvider
-→ CPUExecutionProvider
+           "CPUExecutionProvider",
+           "CUDAExecutionProvider",
+           "MIGraphXExecutionProvider"
+           "ROCmExecutionProvider",
+           "TensorrtExecutionProvider"
 ```
 
 Quick setup:
