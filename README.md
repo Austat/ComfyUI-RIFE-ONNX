@@ -62,6 +62,47 @@ Quick setup:
        Restart ComfyUI.
 ```
 
+Folder structure will end looking like this:
+
+```text
+├── assets/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── contracts.py
+│   ├── device_manager.py
+│   ├── executor.py
+│   ├── metrics.py
+│   ├── model_registry.py
+│   ├── node.py
+│   ├── output_writer.py
+│   ├── scene_detection.py
+│   ├── scheduler.py
+│   └── session_manager.py
+├── backends/
+│   ├── __init__.py
+│   ├── base.py
+│   ├── cpu.py
+│   ├── cuda.py
+│   ├── migraphx.py
+│   ├── rocm.py
+│   ├── tensorrt.py
+│   └── tensorrt.py_fast
+├── models/
+│   ├── rife_v4.25_comfy.onnx
+│   ├── rife_v4.25_ensemble_True_scale_1_comfy.onnx
+│   ├── rife_v4.25_lite_comfy.onnx
+│   ├── rife_v4.25_lite_ensemble_True_scale_1_comfy.onnx
+│   ├── rife_v4.26_comfy.onnx
+│   ├── rife_v4.26_ensemble_True_scale_1_comfy.onnx
+│   ├── rife_v4.26_heavy_comfy.onnx
+│   └── rife_v4.26_heavy_ensemble_True_scale_1_comfy.onnx
+├── LICENSE
+├── README.md
+├── __init__.py
+└── requirements.txt
+
+```
+
 > [!IMPORTANT]
 > This repository contains the node implementation, and couple of RIFE ONNX models. You can also provide your own compatible `.onnx` models.
 > This repo has "models" - folder that has couple of them for start.
