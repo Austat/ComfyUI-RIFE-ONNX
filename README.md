@@ -64,6 +64,7 @@ Quick setup:
 Folder structure will end looking like this:
 
 ```text
+ComfyUI-RIFE-ONNX
 ├── assets/
 │   ├── __init__.py
 │   ├── config.py
